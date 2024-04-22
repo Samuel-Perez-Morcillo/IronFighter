@@ -9,25 +9,25 @@ const Game = {
   },
 
   player1: undefined,
-  // this.player2 = undefined
+  player2: undefined,
 
   keysPlayer1: {
 
     JUMP: 'KeyW',
     LEFT: 'KeyA',
     RIGHT: 'KeyD',
-    ATTACK: 'KeyJ'
+    ATTACK: 'KeyJ',
+    // MOVEJUMP: 'KeyW' && 'KeyD'
 
   },
 
-  // keysPlayer2 = {
+  keysPlayer2: {
 
-  //   JUMP: 'ArrowUp',
-  //   LEFT: 'ArrowLeft',
-  //   RIGHT: 'ArrowRight',
-  //   ATTACK: 'Space'
-  // }
-
+    JUMP2: 'ArrowUp',
+    LEFT2: 'ArrowLeft',
+    RIGHT2: 'ArrowRight',
+    ATTACK2: 'Space'
+  },
 
 
   init() {
@@ -36,7 +36,7 @@ const Game = {
   },
 
   setDimensions() {
-    // console.log(this.gameScreen)
+
     this.gameScreen.style.width = `${this.gameSize.w}px`       // CSS PROPERTIES TO TAKE INTO ACCOUNT
     this.gameScreen.style.height = `${this.gameSize.h}px`      // ALWAYS THE SAME AS WHEN IN CSS
   },
@@ -51,7 +51,7 @@ const Game = {
 
   createElements() {
     this.player1 = new Player1(this.gameSize)
-    // this.player2 = new Player2(this.gameSize)
+    this.player2 = new Player2(this.gameSize)
   },
 
   setEventListener() {
@@ -61,32 +61,60 @@ const Game = {
       switch (code) {
         case this.keysPlayer1.LEFT:
           console.log('SE MUEVE IZQUIERDOSA')
-          this.player1.moveLeft()
+          this.player1.moveLeftPlayer1()
           break
         case this.keysPlayer1.RIGHT:
           console.log('SE MUEVE A LA DERECHAAA')
-          this.player1.moveRight()
+          this.player1.moveRightPlayer1()
           break
         case this.keysPlayer1.JUMP:
           console.log('SALTAAAAAA SALTA CONMIGO')
-          this.player1.jump()
+          this.player1.jumpPlayer1()
           break
+        case this.keysPlayer1.ATTACK:
+          console.log('ay que te rajo')
+          this.player1.attackPlayer1()
+          break
+        case this.keysPlayer2.LEFT2:
+          console.log('WAKA WAKA EH EH')
+          this.player2.moveLeftPlayer2()
+          break
+        case this.keysPlayer2.RIGHT2:
+          console.log('TO THE RIGHT NOW YALL')
+          this.player2.moveRightPlayer2()
+          break
+        case this.keysPlayer2.JUMP2:
+          console.log('YO TAMBIEN SALTOOOO')
+          this.player2.jumpPlayer2()
+          break
+        case this.keysPlayer2.ATTACK2:
+          console.log('PIM PAM TOMA LACASITOS')
+          this.player2.attackPlayer2()
+        // this.player1.moveLeftJumpt()
         // case this.keysPlayer1.ATTACK:
         //   this.player1.moveAttack()
         //   break
       }
     }
+
+
+
+
+
   },
 
   startGameLoop() {
     setInterval(() => {
       this.drawAll()
-    }, 25)
+    }, 20)
   },
 
   drawAll() {
     this.player1.move()
-  }
+    this.player2.move()
+  },
+
+
 
 
 }
