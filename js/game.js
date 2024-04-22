@@ -8,8 +8,13 @@ const Game = {
     h: window.innerHeight
   },
 
+
   player1: undefined,
   player2: undefined,
+  hit1: undefined,
+  hit2: undefined,
+  background: undefined,
+  // fight: undefined,
 
   keysPlayer1: {
 
@@ -36,7 +41,6 @@ const Game = {
   },
 
   setDimensions() {
-
     this.gameScreen.style.width = `${this.gameSize.w}px`       // CSS PROPERTIES TO TAKE INTO ACCOUNT
     this.gameScreen.style.height = `${this.gameSize.h}px`      // ALWAYS THE SAME AS WHEN IN CSS
   },
@@ -50,8 +54,14 @@ const Game = {
   },
 
   createElements() {
+    this.background = new Background(this.gameScreen, this.gameSize)
+    console.log(this.background)
     this.player1 = new Player1(this.gameSize)
     this.player2 = new Player2(this.gameSize)
+
+    this.hit1 = new Hit1(this.gameSize, this.player1)
+    this.hit2 = new Hit2(this.gameSize, this.player2)
+
   },
 
   setEventListener() {
@@ -96,17 +106,13 @@ const Game = {
         //   break
       }
     }
-
-
-
-
-
   },
 
   startGameLoop() {
     setInterval(() => {
       this.drawAll()
-    }, 20)
+      // this.player1.attackPlayer2(this.player2.strength)
+    }, 30)
   },
 
   drawAll() {

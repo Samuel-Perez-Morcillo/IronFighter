@@ -8,27 +8,28 @@ class Player2 {
     this.gameScreen = gameScreen
 
     this.player2Size = {
-      w: 80,
-      h: 150
+      w: 250,
+      h: 400
     }
     // console.log(this.player2Size)
 
     this.player2Pos = {
-      left: 1150,
-      top: this.gameSize.h - this.player2Size.h - 10,
-      base: this.gameSize.h - this.player2Size.h - 250
+      left: 950,
+      top: this.gameSize.h - this.player2Size.h - 70,
+      base: this.gameSize.h - this.player2Size.h - 70
     }
     // console.log(this.player2Pos)
 
     this.player2Speed = {
       top: 20,
       left: 40,
-      gravity: .4
+      gravity: 1.2
     }
 
     this.player2Strength = 10
-
     this.player2Health = 100
+
+    // player1 = undefined
 
     this.init()
   }
@@ -37,10 +38,11 @@ class Player2 {
 
   init() {
 
-    this.player2Element = document.createElement('div')
+    this.player2Element = document.createElement('img')
+    this.player2Element.src = "./img/fighter2.gif"
     // console.log(this.player2Element)
 
-    this.player2Element.style.backgroundColor = 'red'
+    // this.player2Element.style.backgroundColor = 'red'
     this.player2Element.style.position = 'absolute'
     this.player2Element.style.width = `${this.player2Size.w}px`
     this.player2Element.style.height = `${this.player2Size.h}px`
@@ -50,6 +52,9 @@ class Player2 {
 
     document.querySelector("#game-screen").appendChild(this.player2Element)
 
+  }
+  createElement() {
+    this.player1 = new Player1(this.gameSize)
   }
 
   move() {
@@ -91,8 +96,8 @@ class Player2 {
   jumpPlayer2() {
     if (this.player2Pos.top >= this.player2Pos.base) {
       // console.log('SALTA')
-      this.player2Pos.top -= 5
-      this.player2Speed.top -= 10
+      this.player2Pos.top -= 2
+      this.player2Speed.top -= 20
     }
 
   }
@@ -122,14 +127,25 @@ class Player2 {
   }
 
   attackPlayer2() {
-
+    // console.log("player2 attack")
     return this.player2Strength
 
   }
 
-  // damagePlayer2() {
-  //   this.player2Health -= this.player2Strength
+  receiveDamagePlayer2(damage) {
+
+    if (this.player2Health > 0) {
+      this.player2Health -= damage
+    } else {
+      console.log("Player 1 Wins")
+    }
+  }
+
+  // fightPlayer2() {
+  //   const resultFight = this.receiveDamagePlayer2(this.player1.attackPlayer1)
+  //   return resultFight
   // }
+
 
 
 }
