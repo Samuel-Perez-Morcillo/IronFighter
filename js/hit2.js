@@ -7,8 +7,8 @@ class Hit2 {
 
 
         this.hit2Size = {
-            w: 450,
-            h: 450
+            w: 400,
+            h: 80
         }
 
         this.hit2Pos = {

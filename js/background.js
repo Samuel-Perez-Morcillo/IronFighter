@@ -6,7 +6,7 @@ class Background {
     }
     init() {
         this.backgroundElement = document.createElement('img')
-        this.backgroundElement.src = './img/imgBackground.jpeg'
+        this.backgroundElement.src = './img/background-fight-5.gif'
 
         this.backgroundElement.style.backgroundSize = `100%`
         this.backgroundElement.style.backgroundPositionY = `32%`

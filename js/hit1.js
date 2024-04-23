@@ -6,8 +6,8 @@ class Hit1 {
         this.player1 = player1
 
         this.hit1Size = {
-            w: 450,
-            h: 450
+            w: 400,
+            h: 80
         }
 
         this.hit1Pos = {
