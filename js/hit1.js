@@ -5,33 +5,55 @@ class Hit1 {
         this.gameSize = gameSize
         this.player1 = player1
 
-
-        this.hitSize = {
-            w: 250,
-            h: 50
+        this.hit1Size = {
+            w: 450,
+            h: 450
         }
 
-        this.hitPos = {
-            left: this.player1.player1Pos.left - (this.hitSize.w / 3),
-            top: (this.player1.gameSize.h - this.player1.player1Size.h - 10) + this.hitSize.h
+        this.hit1Pos = {
+            left: this.player1.player1Pos.left - (this.hit1Size.w / 4.5),
+            top: this.player1.player1Size.h,
+            base: this.player1.player1Size.h,
         }
+
         this.init()
     }
 
     init() {
+        this.createElement()
+    }
+
+    createElement() {
         this.hitElement = document.createElement('div')
         this.hitElement.style.position = 'absolute'
 
         // this.hitElement.style.backgroundColor = 'green'
-        this.hitElement.style.width = `${this.hitSize.w}px`
-        this.hitElement.style.height = `${this.hitSize.h}px`
-        this.hitElement.style.left = `${this.hitPos.left}px`
-        this.hitElement.style.top = `${this.hitPos.top}px`
+        // this.hitElement.style.opacity = '0.5'
+        this.hitElement.style.width = `${this.hit1Size.w}px`
+        this.hitElement.style.height = `${this.hit1Size.h}px`
+        this.hitElement.style.left = `${this.hit1Pos.left}px`
+        this.hitElement.style.top = `${this.hit1Pos.top}px`
 
 
         document.querySelector('#game-screen').appendChild(this.hitElement)
-        console.log(this.player1)
-        console.log(this.hitPos)
     }
+
+    updatePosition() {
+
+        this.hit1Pos = {
+            left: this.player1.player1Pos.left - (this.hit1Size.w / 4.5),
+            top: this.player1.player1Size.h,
+            base: this.player1.player1Size.h,
+        }
+
+        this.hitElement.style.width = `${this.hit1Size.w}px`
+        this.hitElement.style.height = `${this.hit1Size.h}px`
+        this.hitElement.style.left = `${this.hit1Pos.left}px`
+        this.hitElement.style.top = `${this.hit1Pos.top}px`
+    }
+
+
+
+
 
 }

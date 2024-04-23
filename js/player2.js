@@ -14,7 +14,7 @@ class Player2 {
     // console.log(this.player2Size)
 
     this.player2Pos = {
-      left: 950,
+      left: this.gameSize.w * 0.7,
       top: this.gameSize.h - this.player2Size.h - 70,
       base: this.gameSize.h - this.player2Size.h - 70
     }
@@ -62,7 +62,6 @@ class Player2 {
     this.pullGravity()
     this.borderLimit()
     this.updatePositionPlayer2()
-    this.attackPlayer2()
 
   }
 
@@ -126,20 +125,9 @@ class Player2 {
     }
   }
 
-  attackPlayer2() {
-    // console.log("player2 attack")
-    return this.player2Strength
 
-  }
 
-  receiveDamagePlayer2(damage) {
 
-    if (this.player2Health > 0) {
-      this.player2Health -= damage
-    } else {
-      console.log("Player 1 Wins")
-    }
-  }
 
   // fightPlayer2() {
   //   const resultFight = this.receiveDamagePlayer2(this.player1.attackPlayer1)

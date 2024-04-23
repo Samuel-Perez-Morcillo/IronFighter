@@ -6,32 +6,57 @@ class Hit2 {
         this.player2 = player2
 
 
-        this.hitSize = {
-            w: 250,
-            h: 50
+        this.hit2Size = {
+            w: 450,
+            h: 450
         }
 
-        this.hitPos = {
-            left: this.player2.player2Pos.left - (this.hitSize.w / 3),
-            top: (this.player2.gameSize.h - this.player2.player2Size.h - 10) + this.hitSize.h
+        this.hit2Pos = {
+            left: this.player2.player2Pos.left - (this.hit2Size.w / 4.5),
+            top: this.player2.player2Size.h,
+            base: this.player2.player2Size.h
         }
+
         this.init()
     }
 
     init() {
+        this.createElement()
+    }
+
+    createElement() {
         this.hitElement = document.createElement('div')
         this.hitElement.style.position = 'absolute'
 
         // this.hitElement.style.backgroundColor = 'purple'
-        this.hitElement.style.width = `${this.hitSize.w}px`
-        this.hitElement.style.height = `${this.hitSize.h}px`
-        this.hitElement.style.left = `${this.hitPos.left}px`
-        this.hitElement.style.top = `${this.hitPos.top}px`
+        // this.hitElement.style.opacity = '0.5'
+        this.hitElement.style.width = `${this.hit2Size.w}px`
+        this.hitElement.style.height = `${this.hit2Size.h}px`
+        this.hitElement.style.left = `${this.hit2Pos.left}px`
+        this.hitElement.style.top = `${this.hit2Pos.top}px`
+
 
 
         document.querySelector('#game-screen').appendChild(this.hitElement)
-        console.log(this.player2)
-        console.log(this.hitPos)
+        // console.log(this.player2)
+        // console.log(this.hit2Pos)
     }
+
+    updatePosition() {
+
+        this.hit2Pos = {
+            left: this.player2.player2Pos.left - (this.hit2Size.w / 4.5),
+            top: this.player2.player2Size.h,
+            base: this.player2.player2Size.h
+        }
+
+        this.hitElement.style.width = `${this.hit2Size.w}px`
+        this.hitElement.style.height = `${this.hit2Size.h}px`
+        this.hitElement.style.left = `${this.hit2Pos.left}px`
+        this.hitElement.style.top = `${this.hit2Pos.top}px`
+
+
+    }
+
 
 }

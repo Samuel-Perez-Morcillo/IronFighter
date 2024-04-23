@@ -12,7 +12,7 @@ class Player1 {
     // console.log(this.player1Size)
 
     this.player1Pos = {
-      left: 250,
+      left: this.gameSize.w / 7,
       top: this.gameSize.h - this.player1Size.h - 70,
       base: this.gameSize.h - this.player1Size.h - 70
     }
@@ -26,6 +26,7 @@ class Player1 {
 
     this.player1Strength = 10
     this.player1Health = 100
+    // console.log(this.player1Health),
 
 
     this.init()
@@ -53,33 +54,11 @@ class Player1 {
 
   }
 
-  // createHitbox() {
-
-
-
-  //   this.player1Element2 = document.createElement('div')
-
-  //   this.player1Element2.style.position = 'absolute'
-  //   this.player1Element2.style.width = `${(this.player1Size.w) * .5}px`
-  //   this.player1Element2.style.height = `${(this.player1Size.h) / 2}px`
-  //   this.player1Element2.style.top = `${(this.player1Pos.top) * .5}px`
-  //   this.player1Element2.style.left = `${(this.player1Pos.left) / .5}px`
-  //   this.player1Element2.style.backgroundColor = 'green'
-
-  //   document.querySelector('#player1').appendChild(this.player1Element2)
-
-  // }
-
-
-
-
-
   move() {
 
     this.pullGravity()
-    this.borderLimit()
+    this.checkBorderLimit()
     this.updatePositionPlayer1()
-    this.attackPlayer1()
 
   }
 
@@ -103,11 +82,9 @@ class Player1 {
     this.player1Pos.left += this.player1Speed.left
   }
 
-
   updatePositionPlayer1() {
     this.player1Element.style.left = `${this.player1Pos.left}px`
     this.player1Element.style.top = `${this.player1Pos.top}px`
-
   }
 
   jumpPlayer1() {
@@ -133,7 +110,7 @@ class Player1 {
   }
 
 
-  borderLimit() {
+  checkBorderLimit() {
     if (this.player1Pos.left <= 0) {
       this.leftLimit()
     }
@@ -143,20 +120,9 @@ class Player1 {
     }
   }
 
-  attackPlayer1() {
-    // console.log("player1 attack")
-    return this.player1Strength
 
-  }
 
-  receiveDamagePlayer1(oponentStrength) {
 
-    if (this.player1Health > 0) {
-      this.player1Health -= oponentStrength
-    } else {
-      console.log("Player 2 Wins")
-    }
-  }
 
   // fightPlayer1() {
   //   const resultFight = this.receiveDamagePlayer1(this.player2.attackPlayer2)
