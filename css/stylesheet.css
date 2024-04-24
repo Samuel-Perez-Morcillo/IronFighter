@@ -7,3 +7,20 @@
   position: relative;
   overflow: hidden;
 }
+
+/* .progress1 {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+/* 
+
+/* #progressBar {
+  height: 20px;
+  background-color: #4caf50;
+  width: 0%;
+  border-radius: 8px;
+} */

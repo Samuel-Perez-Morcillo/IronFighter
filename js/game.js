@@ -14,6 +14,8 @@ const Game = {
   hit1: undefined,
   hit2: undefined,
   background: undefined,
+  healthBar1: undefined,
+  healthBar2: undefined,
   // fight: undefined,
 
 
@@ -52,6 +54,9 @@ const Game = {
     this.setEventListener()
     this.startGameLoop()
 
+
+
+
   },
 
   createElements() {
@@ -61,8 +66,9 @@ const Game = {
 
     this.hit1 = new Hit1(this.gameSize, this.player1)
     this.hit2 = new Hit2(this.gameSize, this.player2)
+    this.healthBar1 = new HealthBar1(this.gameSize, this.player1)
+    this.healthBar2 = new HealthBar2(this.gameSize, this.player1)
 
-    // console.log(this.player1.player1Health)
   },
 
   attackPlayer1() {
@@ -75,7 +81,7 @@ const Game = {
       this.hit1.hit1Size.h + this.hit1.hit1Pos.top > this.player2.player2Pos.top
     ) {
 
-      console.log("P1", this.player1.player1Strength)
+      // console.log("P1", this.player1.player1Strength)
       return this.receiveDamagePlayer2()
 
     }
@@ -108,8 +114,11 @@ const Game = {
       alert("GAME OVER: PLAYER 2 WINS")
 
     } else {
+
+      // let originalHealth = this.player1.player1Health
       this.player1.player1Health -= this.player2.player2Strength
-      console.log(this.player1.player1Health)
+      // const percentage = (this.player1.player1Health / originalHealth) * 100
+      // console.log(this.movingHealthBar1(percentage))
 
 
     }
@@ -124,11 +133,33 @@ const Game = {
       alert("GAME OVER: PLAYER 1 WINS")
 
     } else {
-
+      let originalHealth = 150
+      console.log(originalHealth)
       this.player2.player2Health -= this.player1.player1Strength
+      const percentage = (this.player2.player2Health / originalHealth) * 100
+      console.log(percentage)
+      this.movingHealthBar2(50)
 
     }
   },
+
+
+  movingHealthBar1(percentage) {
+
+
+    //document.querySelector('#healthBar1').style.width = `${percentage}%`
+
+
+  },
+
+
+
+  movingHealthBar2(percentage) {
+    document.querySelector('.red-bar').style.width = `${percentage}%`
+    //this.HealthProgress2Element.style.width = `${percentage}`
+  },
+
+
 
 
   setEventListener() {
@@ -153,6 +184,7 @@ const Game = {
         case this.keysPlayer1.ATTACK:
           console.log('ay que te rajo')
           this.attackPlayer1()
+          this.movingHealthBar1()
           break
         case this.keysPlayer2.LEFT2:
           console.log('WAKA WAKA EH EH')
@@ -189,6 +221,8 @@ const Game = {
     this.player2.move()
     this.hit1.updatePosition()
     this.hit2.updatePosition()
+    this.healthBar1.updatePosition()
+
   },
 
 

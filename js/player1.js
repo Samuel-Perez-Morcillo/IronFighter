@@ -25,7 +25,7 @@ class Player1 {
     }
 
     this.player1Strength = 10
-    this.player1Health = 100
+    this.player1Health = 150
     // console.log(this.player1Health),
 
 
