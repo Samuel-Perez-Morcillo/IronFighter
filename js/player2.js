@@ -24,7 +24,7 @@ class Player2 {
     }
 
     this.player2Strength = 10
-    this.player2Health = 150
+    this.player2Health = 100
 
     this.init()
   }

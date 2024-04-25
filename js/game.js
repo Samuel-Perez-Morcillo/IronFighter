@@ -109,17 +109,14 @@ const Game = {
 
   receiveDamagePlayer1() {
 
-    if (this.player1.player1Health === 10) {
+    if (this.player1.player1Health != 0) {
 
-      alert("GAME OVER: PLAYER 2 WINS")
+      this.player1.player1Health -= this.player2.player2Strength
+      this.updateHealthBar1()
 
     } else {
 
-      // let originalHealth = this.player1.player1Health
-      this.player1.player1Health -= this.player2.player2Strength
-      // const percentage = (this.player1.player1Health / originalHealth) * 100
-      // console.log(this.movingHealthBar1(percentage))
-
+      alert("GAME OVER: PLAYER 2 WINS")
 
     }
   },
@@ -128,25 +125,21 @@ const Game = {
 
   receiveDamagePlayer2() {
 
-    if (this.player2.player2Health === 10) {
+    if (this.player2.player2Health != 0) {
 
-      alert("GAME OVER: PLAYER 1 WINS")
+      this.player2.player2Health -= this.player1.player1Strength
+      this.updateHealthBar2()
 
     } else {
-      let originalHealth = 150
-      console.log(originalHealth)
-      this.player2.player2Health -= this.player1.player1Strength
-      const percentage = (this.player2.player2Health / originalHealth) * 100
-      console.log(percentage)
-      this.movingHealthBar2(50)
-
+      alert("GAME OVER: PLAYER 1 WINS")
     }
   },
 
 
-  movingHealthBar1(percentage) {
+  updateHealthBar1() {
 
-
+    const currentHealth = this.player1.player1Health
+    document.querySelector('.red-bar').style.width = `${currentHealth}%`
     //document.querySelector('#healthBar1').style.width = `${percentage}%`
 
 
@@ -154,9 +147,9 @@ const Game = {
 
 
 
-  movingHealthBar2(percentage) {
-    document.querySelector('.red-bar').style.width = `${percentage}%`
-    //this.HealthProgress2Element.style.width = `${percentage}`
+  updateHealthBar2() {
+    const currentHealth = this.player2.player2Health
+    document.querySelector('.blue-bar').style.width = `${currentHealth}%`
   },
 
 
@@ -184,7 +177,7 @@ const Game = {
         case this.keysPlayer1.ATTACK:
           console.log('ay que te rajo')
           this.attackPlayer1()
-          this.movingHealthBar1()
+          this.updateHealthBar2()
           break
         case this.keysPlayer2.LEFT2:
           console.log('WAKA WAKA EH EH')
@@ -201,6 +194,7 @@ const Game = {
         case this.keysPlayer2.ATTACK2:
           console.log('PIM PAM TOMA LACASITOS')
           this.attackPlayer2()
+          this.updateHealthBar1()
         // this.player1.moveLeftJumpt()
         // case this.keysPlayer1.ATTACK:
         //   this.player1.moveAttack()
@@ -221,7 +215,6 @@ const Game = {
     this.player2.move()
     this.hit1.updatePosition()
     this.hit2.updatePosition()
-    this.healthBar1.updatePosition()
 
   },
 
