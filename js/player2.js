@@ -7,14 +7,14 @@ class Player2 {
     this.gameScreen = gameScreen
 
     this.player2Size = {
-      w: 250,
+      w: 450,
       h: 400
     }
 
     this.player2Pos = {
       left: this.gameSize.w * 0.7,
-      top: this.gameSize.h - this.player2Size.h - 70,
-      base: this.gameSize.h - this.player2Size.h - 70
+      top: this.gameSize.h - this.player2Size.h - 55,
+      base: this.gameSize.h - this.player2Size.h - 55
     }
 
     this.player2Speed = {
@@ -25,6 +25,8 @@ class Player2 {
 
     this.player2Strength = 10
     this.player2Health = 100
+
+    this.canAttack = true
 
     this.init()
   }
@@ -39,7 +41,8 @@ class Player2 {
 
   createElement() {
     this.player2Element = document.createElement('img')
-    this.player2Element.src = "./img/fighter2.gif"
+    this.player2Element.setAttribute('id', 'player2')
+    this.player2Element.src = "./img/akria_sprite_static.gif"
 
     this.player2Element.style.position = 'absolute'
     this.player2Element.style.width = `${this.player2Size.w}px`

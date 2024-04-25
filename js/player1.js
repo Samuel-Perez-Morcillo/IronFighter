@@ -6,15 +6,15 @@ class Player1 {
     // console.log(gameSize)
 
     this.player1Size = {
-      w: 250,
+      w: 600,
       h: 400
     }
     // console.log(this.player1Size)
 
     this.player1Pos = {
       left: this.gameSize.w / 7,
-      top: this.gameSize.h - this.player1Size.h - 70,
-      base: this.gameSize.h - this.player1Size.h - 70
+      top: this.gameSize.h - this.player1Size.h - 55,
+      base: this.gameSize.h - this.player1Size.h - 55
     }
     // console.log(this.player1Pos)
 
@@ -28,6 +28,7 @@ class Player1 {
     this.player1Health = 100
     // console.log(this.player1Health),
 
+    this.canAttack = true
 
     this.init()
   }
@@ -37,7 +38,10 @@ class Player1 {
   init() {
 
     this.player1Element = document.createElement('img')
-    this.player1Element.src = "./img/jin.gif"
+    this.player1Element.setAttribute('id', 'player1')
+    this.player1Element.src = './img/jin_sprite_static.gif'
+
+
     // console.log(this.player1Element)
 
     // this.player1Element.style.backgroundColor = 'blue'

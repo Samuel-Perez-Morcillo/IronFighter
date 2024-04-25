@@ -31,7 +31,7 @@ class HealthBar1 {
         this.HealthProgress1Element = document.createElement('div')
         this.HealthProgress1Element.setAttribute('class', 'red-bar')
 
-        this.HealthBar1Element.style.borderRadius = '20px'
+        this.HealthBar1Element.style.borderRadius = '45px'
         this.HealthBar1Element.style.position = 'absolute'
         this.HealthBar1Element.style.border = '3px solid white'
         this.HealthBar1Element.style.width = `${this.HealthBar1Size.w}px`
@@ -40,7 +40,7 @@ class HealthBar1 {
         this.HealthBar1Element.style.top = `${this.HealthBar1Pos.top}px`
 
         this.HealthProgress1Element.style.backgroundColor = 'red'
-        this.HealthProgress1Element.style.borderRadius = '20px'
+        this.HealthProgress1Element.style.borderRadius = '43px'
         this.HealthProgress1Element.style.opacity = '.4'
         this.HealthProgress1Element.style.height = `${this.HealthBar1Size.h}px`
         this.HealthProgress1Element.style.left = `20px`
