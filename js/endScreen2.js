@@ -12,10 +12,13 @@ class EndScreen2 {
     }
 
     init() {
+
         this.createElement()
+
     }
 
     createElement() {
+
         this.EndScreenElement = document.createElement('div')
         this.EndScreenElement.setAttribute('id', 'end-screen2')
 
@@ -78,10 +81,10 @@ class EndScreen2 {
         document.querySelector('#end-screen2').appendChild(this.buttonElement)
         document.querySelector('#end-screen2').appendChild(this.phraseElement)
 
-
     }
 
     endGame2() {
+
         this.EndScreenElement.style.display = 'block'
         this.gameOverElement.style.display = 'block'
         this.buttonElement.style.display = 'block'

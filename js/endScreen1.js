@@ -12,10 +12,13 @@ class EndScreen1 {
     }
 
     init() {
+
         this.createElement()
+
     }
 
     createElement() {
+
         this.EndScreenElement = document.createElement('div')
         this.EndScreenElement.setAttribute('id', 'end-screen1')
 
@@ -26,7 +29,6 @@ class EndScreen1 {
         this.buttonElement = document.createElement('button')
         this.buttonElement.setAttribute('type', 'button')
         this.buttonElement.setAttribute('onClick', 'window.location.reload();')
-
 
         this.phraseElement = document.createElement('h2')
 
@@ -86,7 +88,6 @@ class EndScreen1 {
         this.gameOverElement.style.display = 'block'
         this.buttonElement.style.display = 'block'
         this.phraseElement.style.display = 'block'
-
 
     }
 

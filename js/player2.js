@@ -12,15 +12,19 @@ class Player2 {
     }
 
     this.player2Pos = {
+
       left: this.gameSize.w * 0.7,
       top: this.gameSize.h - this.player2Size.h - 55,
       base: this.gameSize.h - this.player2Size.h - 55
+
     }
 
     this.player2Speed = {
+
       top: 20,
       left: 40,
       gravity: 1.2
+
     }
 
     this.player2Strength = 10
@@ -29,6 +33,7 @@ class Player2 {
     this.canAttack = true
 
     this.init()
+
   }
 
 
@@ -36,19 +41,23 @@ class Player2 {
   init() {
 
     this.createElement()
+
   }
 
 
   createElement() {
+
     this.player2Element = document.createElement('img')
     this.player2Element.setAttribute('id', 'player2')
     this.player2Element.src = "./img/akria_sprite_static.gif"
+
 
     this.player2Element.style.position = 'absolute'
     this.player2Element.style.width = `${this.player2Size.w}px`
     this.player2Element.style.height = `${this.player2Size.h}px`
     this.player2Element.style.top = `${this.player2Pos.top}px`
     this.player2Element.style.left = `${this.player2Pos.left}px`
+
 
     document.querySelector("#game-screen").appendChild(this.player2Element)
 

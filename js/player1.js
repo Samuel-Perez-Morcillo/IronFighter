@@ -41,20 +41,13 @@ class Player1 {
     this.player1Element.setAttribute('id', 'player1')
     this.player1Element.src = './img/jin_sprite_static.gif'
 
-
-    // console.log(this.player1Element)
-
-    // this.player1Element.style.backgroundColor = 'blue'
     this.player1Element.style.position = 'absolute'
     this.player1Element.style.width = `${this.player1Size.w}px`
     this.player1Element.style.height = `${this.player1Size.h}px`
     this.player1Element.style.top = `${this.player1Pos.top}px`
     this.player1Element.style.left = `${this.player1Pos.left}px`
 
-    // this.player1Element.setAttribute('class', 'player1')
-
     document.querySelector("#game-screen").appendChild(this.player1Element)
-
 
   }
 
@@ -79,42 +72,55 @@ class Player1 {
   }
 
   moveLeftPlayer1() {
+
     this.player1Pos.left -= this.player1Speed.left
+
   }
 
   moveRightPlayer1() {
+
     this.player1Pos.left += this.player1Speed.left
+
   }
 
   updatePositionPlayer1() {
+
     this.player1Element.style.left = `${this.player1Pos.left}px`
     this.player1Element.style.top = `${this.player1Pos.top}px`
+
   }
 
   jumpPlayer1() {
+
     if (this.player1Pos.top >= this.player1Pos.base) {
-      // console.log('SALTA')
       this.player1Pos.top -= 2
       this.player1Speed.top -= 20
-    }
 
+    }
   }
 
   moveLeftJumpPlayer1() {
+
     this.moveLeft()
     this.jump()
+
   }
 
   leftLimit() {
+
     this.player1Pos.left *= 0
+
   }
 
   rightLimit() {
+
     this.player1Pos.left = this.gameSize.w - this.player1Size.w
+
   }
 
 
   checkBorderLimit() {
+
     if (this.player1Pos.left <= 0) {
       this.leftLimit()
     }
@@ -128,10 +134,7 @@ class Player1 {
 
 
 
-  // fightPlayer1() {
-  //   const resultFight = this.receiveDamagePlayer1(this.player2.attackPlayer2)
-  //   return resultFight
-  // }
+
 
 
 }   
