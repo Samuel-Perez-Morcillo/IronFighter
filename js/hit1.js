@@ -27,8 +27,7 @@ class Hit1 {
         this.hitElement = document.createElement('div')
         this.hitElement.style.position = 'absolute'
 
-        // this.hitElement.style.backgroundColor = 'green'
-        // this.hitElement.style.opacity = '0.5'
+
         this.hitElement.style.width = `${this.hit1Size.w}px`
         this.hitElement.style.height = `${this.hit1Size.h}px`
         this.hitElement.style.left = `${this.hit1Pos.left}px`
