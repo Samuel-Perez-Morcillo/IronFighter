@@ -12,7 +12,7 @@ class Player1 {
     // console.log(this.player1Size)
 
     this.player1Pos = {
-      left: this.gameSize.w / 7,
+      left: this.gameSize.w / 25,
       top: this.gameSize.h - this.player1Size.h - 55,
       base: this.gameSize.h - this.player1Size.h - 55
     }
