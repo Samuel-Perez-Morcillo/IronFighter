@@ -48,3 +48,7 @@ Contributions are welcome. If you wish to contribute to the project, please foll
 5. Create a pull request describing the changes made.
 
 Thank you for playing and contributing to our IRON FIGHTER project!
+
+## ORIGINAL COLLABORATION SITE
+
+https://github.com/Daniela-AB25/Project1-Ironhack-Game
