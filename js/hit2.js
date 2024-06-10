@@ -52,6 +52,4 @@ class Hit2 {
         this.hitElement.style.left = `${this.hit2Pos.left}px`
         this.hitElement.style.top = `${this.hit2Pos.top}px`
     }
-
-
 }
