@@ -37,8 +37,6 @@ class Hit2 {
 
 
         document.querySelector('#game-screen').appendChild(this.hitElement)
-        // console.log(this.player2)
-        // console.log(this.hit2Pos)
     }
 
     updatePosition() {
@@ -53,8 +51,6 @@ class Hit2 {
         this.hitElement.style.height = `${this.hit2Size.h}px`
         this.hitElement.style.left = `${this.hit2Pos.left}px`
         this.hitElement.style.top = `${this.hit2Pos.top}px`
-
-
     }
 
 
